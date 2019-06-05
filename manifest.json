@@ -1,21 +1,19 @@
 {
     "manifest_version": 2,
-    "name": "Save player stats",
-    "description": "This extension lets you save sofifa player stats",
+    "name": "Save players from transfermarkt",
+    "description": "This extension lets you save players from transfermarkt",
     "version": "1.0",
     "browser_action": {
         "default_icon": "./static/favicon.png",
-        "default_popup": "popup.html",
-        "default_title": "Save stats"
+        "default_title": "Save players"
     },
-    "content_scripts": [{
-        "matches": ["*://*.sofifa.com/player*"],
-        "all_frames": true,
-        "js":      ["scripts/content.js"]
-    }],
-    "permissions": [
-        "activeTab"
+    "content_scripts": [
+        {
+            "matches": ["https://www.transfermarkt.com/*"],
+            "all_frames": true,
+            "js": ["scripts/content.js"]
+        }
     ],
+    "permissions": ["activeTab"],
     "content_security_policy": "script-src 'self' https://www.gstatic.com/; object-src 'self'"
 }
-
